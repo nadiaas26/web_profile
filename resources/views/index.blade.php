@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Creative CV</title>
+    <title>ROBO-SOIL</title>
     <link href="{{ asset('https://fonts.googleapis.com/css?family=Montserrat:400,700,200') }}" rel="stylesheet">
     <link href="{{ asset('https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css') }}"
         rel="stylesheet">
@@ -27,7 +27,7 @@
         <div class="profile-page sidebar-collapse">
             <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
                 <div class="container">
-                    <div class="navbar-translate"><a class="navbar-brand" href="#" rel="tooltip">Web Profile</a>
+                    <div class="navbar-translate"><a class="navbar-brand" href="#" rel="tooltip">ROBO-SOIL DATA</a>
                         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navigation" aria-controls="navigation" aria-expanded="false"
                             aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span
@@ -36,11 +36,11 @@
                     </div>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <ul class="navbar-nav">
-                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">Tentang</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">Tentang</a></li>
                             <li class="nav-item"><a class="nav-link smooth-scroll" href="#education">Pendidikan</a>
                             </li>
-                            {{-- <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Experience</a>
-                            </li> --}}
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Experience</a>
+                            </li>  -->
                             <li class="nav-item"><a class="nav-link smooth-scroll" href="login">Login</a></li>
                         </ul>
                     </div>
@@ -81,8 +81,7 @@
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="card-body">
-                                    <div class="h4 mt-0 title">Basic Information</div>
-
+                                    <div class="h4 mt-0 title">Informasi</div>
                                     @foreach ($profile as $value)
                                         <div class="row">
                                             <div class="col-sm-4"><strong class="text-uppercase">Nama</strong></div>
@@ -123,7 +122,7 @@
 
             <div class="section" id="education">
                 <div class="container cc-education">
-                    <div class="h4 text-center mb-4 title">Pendidikan </div>
+                    <div class="h4 text-center mb-4 title">Jenis Tanah</div>
                     @foreach ($data as $value)
                         <div class="card">
                             <div class="row">

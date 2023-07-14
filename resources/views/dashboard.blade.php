@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Creative CV</title>
+    <title>ROBO-SOIL</title>
     <link href="{{ asset('https://fonts.googleapis.com/css?family=Montserrat:400,700,200') }}" rel="stylesheet">
     <link href="{{ asset('https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css') }}"
         rel="stylesheet">
@@ -27,7 +27,7 @@
         <div class="profile-page sidebar-collapse">
             <nav class="navbar navbar-expand-lg fixed-top  bg-primary" color="0">
                 <div class="container">
-                    <div class="navbar-translate"><a class="navbar-brand" href="#" rel="tooltip">Creative CV</a>
+                    <div class="navbar-translate"><a class="navbar-brand" href="#" rel="tooltip">ROBO-SOIL</a>
                         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navigation" aria-controls="navigation" aria-expanded="false"
                             aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span
@@ -36,8 +36,8 @@
                     </div>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <ul class="navbar-nav">
-                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">Data Diri</a></li>
-                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#education">Pendidikan</a>
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">FOTO TANAH</a></li>
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#education">JENIS TANAH</a>
                             </li>
                             <li class="nav-item"><a class="nav-link smooth-scroll" href="/">Log Out</a></li>
                         </ul>
@@ -50,22 +50,22 @@
 
     <div class="section" id="about">
         <div class="container">
-            <div class="h4 text-center mb-4 title">Data Diri</div>
+            <div class="h4 text-center mb-4 title">FOTO TANAH</div>
             <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                 <div class="card-body">
                     <form action="updateimage" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
-                        <label>Foto Profil</label>
+                        <label>FOTO TANAH</label>
                         <div class="form-group">
                             <div class="form-group">
                                 <input type="file" name="image">
                                 <button type="submit">Update
-                                    Foto Profil</button>
+                                    Foto Tanah</button>
                             </div>
                         </div>
                     </form>
-                    <form action="updatebackground" method="POST" enctype="multipart/form-data">
+                    <!-- <form action="updatebackground" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         <label>Foto Background</label>
@@ -76,7 +76,7 @@
                                     Foto Background</button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
                     @foreach ($profile as $value)
                         <form action="image-upload" enctype="multipart/form-data" method="post"
                             enctype="multipart/form-data">
@@ -139,18 +139,18 @@
     <div class="page-content">
         <div class="section" id="education">
             <div class="container">
-                <div class="h4 text-center mb-4 title">Pendidikan</div>
+                <div class="h4 text-center mb-4 title">JENIS TANAH</div>
                 <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                     <div class="card-body">
                         <div class="row">
                             <div class="card-body">
-                                <div class="h6 mt-0 title">Data Diri</div>
+                                <div class="h6 mt-0 title">Jenis Tanah</div>
                                 <table id="customers">
                                     <tr>
-                                        <th>Nama Sekolah</th>
-                                        <th>Pendidikan</th>
-                                        <th>Tahun Tempuh</th>
-                                        <th>Deskripsi</th>
+                                        <th>Nama Tanah</th>
+                                        <th>Natrium</th>
+                                        <th>Kalium</th>
+                                        <th>Saran Tanaman</th>
                                         <th>Aksi</th>
                                     </tr>
                                     @foreach ($data as $value)
@@ -172,18 +172,18 @@
                             <div class="card-body ">
                                 <form action="simpanpendidikan" method="post">
                                     @csrf
-                                    <div class="h6 mt-0 title">Data Diri</div>
+                                    <div class="h6 mt-0 title">Jenis Tanah</div>
                                     <div class="form-group">
-                                        <label>Nama Sekolah</label>
+                                        <label>Nama Tanah</label>
                                         <input type="text" name="sekolah" class="form-control" value=""
                                             required="" placeholder="" autocomplete="off">
-                                        <label>Pendidikan</label>
+                                        <label>Natrium</label>
                                         <input type="text" name="pendidikan" class="form-control" value=""
                                             required="" placeholder="" autocomplete="off">
-                                        <label>Tahun Tempuh</label>
+                                        <label>Kalium</label>
                                         <input type="text" name="tahun" class="form-control" value=""
                                             required="" placeholder="" autocomplete="off">
-                                        <label>Deskripsi</label>
+                                        <label>Saran Tanaman</label>
                                         <input type="text" name="deskripsi" class="form-control" value=""
                                             required="" placeholder="" autocomplete="off">
                                         <button class="btn btn-primary" type="submit">Simpan</button>
