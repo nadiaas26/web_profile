@@ -78,7 +78,7 @@
                         </div>
                     </form> -->
                     @foreach ($profile as $value)
-                        <form action="image-upload" enctype="multipart/form-data" method="post"
+                        {{-- <form action="image-upload" enctype="multipart/form-data" method="post"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
@@ -130,7 +130,7 @@
                                 </div>
                             </div>
                         </form>
-                    @endforeach
+                    @endforeach --}}
                 </div>
             </div>
         </div>
@@ -147,18 +147,14 @@
                                 <div class="h6 mt-0 title">Jenis Tanah</div>
                                 <table id="customers">
                                     <tr>
-                                        <th>Nama Tanah</th>
-                                        <th>Natrium</th>
-                                        <th>Kalium</th>
+                                        <th>Perbaikan Tanaman</th>
                                         <th>Saran Tanaman</th>
                                         <th>Aksi</th>
                                     </tr>
                                     @foreach ($data as $value)
                                         <tr>
-                                            <td>{{ $value->sekolah }}</td>
-                                            <td>{{ $value->pendidikan }}</td>
-                                            <td>{{ $value->tahun }}</td>
-                                            <td>{{ $value->deskripsi }}</td>
+                                            <td>{{ $value->perbaikantanah }}</td>
+                                            <td>{{ $value->sarantanaman }}</td>
                                             <td><a class="btn btn-warning fa fa-pencil" data-toggle="modal"
                                                     data-target="#exampleModal{{ $value->id_edu }}"
                                                     style="color: white;"></a>
@@ -174,16 +170,66 @@
                                     @csrf
                                     <div class="h6 mt-0 title">Jenis Tanah</div>
                                     <div class="form-group">
-                                        <label>Nama Tanah</label>
-                                        <input type="text" name="sekolah" class="form-control" value=""
-                                            required="" placeholder="" autocomplete="off">
-                                        <label>Natrium</label>
-                                        <input type="text" name="pendidikan" class="form-control" value=""
-                                            required="" placeholder="" autocomplete="off">
-                                        <label>Kalium</label>
-                                        <input type="text" name="tahun" class="form-control" value=""
+                                        <label>Perbaikan Tanah</label>
+                                        <input type="text" name="perbaikantanah" class="form-control" value=""
                                             required="" placeholder="" autocomplete="off">
                                         <label>Saran Tanaman</label>
+                                        <input type="text" name="sarantanaman" class="form-control" value=""
+                                            required="" placeholder="" autocomplete="off">
+                                        <button class="btn btn-primary" type="submit">Simpan</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="section" id="berita">
+            <div class="container">
+                <div class="h4 text-center mb-4 title">Berita</div>
+                <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="card-body">
+                                <div class="h6 mt-0 title">Berita</div>
+                                <table id="customers">
+                                    <tr>
+                                        <th>Judul Berita</th>
+                                        <th>Tanggal Berita</th>
+                                        <th>Deskripsi Berita</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                    @foreach ($data as $value)
+                                        <tr>
+                                            <td>{{ $value->judul }}</td>
+                                            <td>{{ $value->tglberita }}</td>
+                                            <td>{{ $value->deskripsi }}</td>
+                                            <td><a class="btn btn-warning fa fa-pencil" data-toggle="modal"
+                                                    data-target="#exampleModal{{ $value->id_edu }}"
+                                                    style="color: white;"></a>
+                                                <a class="btn btn-danger fa fa-trash"
+                                                    href="{{ url('hapusedu/' . $value->id_edu) }}"></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+                            </div>
+                            <div class="card-body ">
+                                <form action="simpanpendidikan" method="post">
+                                    @csrf
+                                    <div class="h6 mt-0 title">Berita</div>
+                                    <div class="form-group">
+                                        <label>Judul Berita</label>
+                                        <input type="text" name="judul" class="form-control" value=""
+                                            required="" placeholder="" autocomplete="off">
+                                        <label>Tanggal Berita</label>
+                                        <input type="date" name="tglberita" class="form-control" value=""
+                                            required="" placeholder="" autocomplete="off">
+                                        <label>Deskripsi Berita</label>
                                         <input type="text" name="deskripsi" class="form-control" value=""
                                             required="" placeholder="" autocomplete="off">
                                         <button class="btn btn-primary" type="submit">Simpan</button>
@@ -195,13 +241,10 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
 
 
-    <!-- Modal -->
+    <!-- Modal Edit jenis tanah-->
     @foreach ($data as $value)
         <div class="modal fade" id="exampleModal{{ $value->id_edu }}" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -217,23 +260,16 @@
                         <div class="modal-body">
                             @csrf
                             <div class="form-group">
-                                <label>Nama Sekolah</label>
-                                <input type="text" name="sekolah" class="form-control"
-                                    value="{{ $value->sekolah }}" required="" placeholder="" autocomplete="off">
-                                <label>Pendidikan</label>
-                                <input type="text" name="pendidikan" class="form-control"
-                                    value="{{ $value->pendidikan }}" required="" placeholder=""
+                                <label>Perbaikan Tanah</label>
+                                <input type="text" name="perbaikantanah" class="form-control"
+                                    value="{{ $value->perbaikantanah }}" required="" placeholder="" autocomplete="off">
+                                <label>Saran Tanaman</label>
+                                <input type="text" name="sarantanaman" class="form-control"
+                                    value="{{ $value->sarantanaman }}" required="" placeholder=""
                                     autocomplete="off">
-                                <label>Tahun Tempuh</label>
-                                <input type="text" name="tahun" class="form-control"
-                                    value="{{ $value->tahun }}" required="" placeholder="" autocomplete="off">
-                                <label>Deskripsi</label>
-                                <textarea type="text" name="deskripsi" class="form-control" value="{{ $value->deskripsi }}" required=""
-                                    placeholder="" autocomplete="off">{{ $value->deskripsi }}</textarea>
                             </div>
                         </div>
                         <div class="modal-footer">
-
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
@@ -241,6 +277,45 @@
             </div>
         </div>
     @endforeach
+
+    <!-- Modal Edit berita-->
+    {{-- @foreach ($data as $value)
+        <div class="modal fade" id="exampleModaledit{{ $value->id_edu }}" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{{ url('editedu/' . $value->id_edu) }}" method="post">
+                        <div class="modal-body">
+                            @csrf
+                            <div class="form-group">
+                                <label>Judul Berita</label>
+                                <input type="text" name="judul" class="form-control"
+                                    value="{{ $value->judul }}" required="" placeholder="" autocomplete="off">
+                                <label>Tanggal Berita</label>
+                                <input type="date" name="tglberita" class="form-control"
+                                    value="{{ $value->tglberita }}" required="" placeholder=""
+                                    autocomplete="off">
+                                <label>Deskripsi Berita</label>
+                                <input type="date" name="deskripsi" class="form-control"
+                                    value="{{ $value->deskripsi }}" required="" placeholder=""
+                                    autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach --}}
+
 
 </body>
 

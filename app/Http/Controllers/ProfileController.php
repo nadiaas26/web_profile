@@ -10,10 +10,10 @@ use PhpParser\Node\Stmt\Return_;
 class ProfileController extends Controller
 {
     public function index(){
-        $profile = ProfileModel::all();
-        $data = EducationModel::all();
+        // $profile = ProfileModel::all();
+        // $data = EducationModel::all();
         // dd($profile);
-        return view('index', compact('profile','data'));
+        return view('index');
     }
 
     public function dashboard(){

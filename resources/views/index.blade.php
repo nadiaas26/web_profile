@@ -53,7 +53,7 @@
             <div class="profile-page">
                 <div class="wrapper">
                     <div class="page-header page-header-small" filter-color="green">
-                        @foreach ($profile as $value)
+                        {{-- @foreach ($profile as $value) --}}
                             <div class="page-header-image" data-parallax="true"
                                 style="background-image: url('background/{{ $value->background }}')"></div>
                             <div class="container">
@@ -63,7 +63,7 @@
                                     <div class="h2 title">{{ $value->nama }}</div>
                                 </div>
                             </div>
-                        @endforeach
+                        {{-- @endforeach --}}
                     </div>
                 </div>
             </div>
@@ -73,16 +73,16 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-12">
                                 <div class="card-body">
-                                    @foreach ($profile as $value)
+                                    {{-- @foreach ($profile as $value) --}}
                                         <div class="h4 mt-0 title">About</div>
                                         <p>{{ $value->deskripsi }}</p>
-                                    @endforeach
+                                    {{-- @endforeach --}}
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="card-body">
                                     <div class="h4 mt-0 title">Informasi</div>
-                                    @foreach ($profile as $value)
+                                    {{-- @foreach ($profile as $value) --}}
                                         <div class="row">
                                             <div class="col-sm-4"><strong class="text-uppercase">Nama</strong></div>
                                             <div class="col-sm-8">{{ $value->nama }}</div>
@@ -112,7 +112,7 @@
                                             </div>
                                             <div class="col-sm-8">{{ $value->alamat }}</div>
                                         </div>
-                                    @endforeach
+                                    {{-- @endforeach --}}
                                 </div>
                             </div>
                         </div>
@@ -123,7 +123,7 @@
             <div class="section" id="education">
                 <div class="container cc-education">
                     <div class="h4 text-center mb-4 title">Jenis Tanah</div>
-                    @foreach ($data as $value)
+                    {{-- @foreach ($data as $value) --}}
                         <div class="card">
                             <div class="row">
                                 <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50"
@@ -143,13 +143,13 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    {{-- @endforeach --}}
                 </div>
             </div>
 
         </div>
     </div>
-    @foreach ($profile as $value)
+    {{-- @foreach ($profile as $value) --}}
         <footer class="footer">
             <div class="h4 title text-center">{{ $value->nama }}</div>
             <div class="text-center text-muted">
@@ -157,7 +157,7 @@
                         href="https://templateflip.com" target="_blank">TemplateFlip</a></p>
             </div>
         </footer>
-    @endforeach
+    {{-- @endforeach --}}
 
     <script src="js/core/jquery.3.2.1.min.js?ver=1.1.0"></script>
     <script src="js/core/popper.min.js?ver=1.1.0"></script>
