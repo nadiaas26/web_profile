@@ -36,8 +36,10 @@
                     </div>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <ul class="navbar-nav">
-                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">FOTO TANAH</a></li>
-                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#education">JENIS TANAH</a>
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#tanaman">Saran Tanaman</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#perbaikan">Saran Perbaikan</a>
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#berita">Berita</a>
                             </li>
                             <li class="nav-item"><a class="nav-link smooth-scroll" href="/">Log Out</a></li>
                         </ul>
@@ -47,99 +49,10 @@
         </div>
     </header>
 
-
-    <div class="section" id="about">
-        <div class="container">
-            <div class="h4 text-center mb-4 title">FOTO TANAH</div>
-            <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                <div class="card-body">
-                    <form action="updateimage" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        @method('PATCH')
-                        <label>FOTO TANAH</label>
-                        <div class="form-group">
-                            <div class="form-group">
-                                <input type="file" name="image">
-                                <button type="submit">Update
-                                    Foto Tanah</button>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- <form action="updatebackground" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        @method('PATCH')
-                        <label>Foto Background</label>
-                        <div class="form-group">
-                            <div class="form-group">
-                                <input type="file" name="image">
-                                <button type="submit">Update
-                                    Foto Background</button>
-                            </div>
-                        </div>
-                    </form> -->
-                    @foreach ($profile as $value)
-                        {{-- <form action="image-upload" enctype="multipart/form-data" method="post"
-                            enctype="multipart/form-data">
-                            @csrf
-                            @method('PATCH')
-                            <div class="row">
-                                <div class="card-body ">
-                                    <div class="form-group">
-                                        <label>Nama Lengkap</label>
-                                        <input type="text" name="nama" class="form-control"
-                                            value="{{ $value->nama }}" required="" placeholder=""
-                                            autocomplete="off">
-                                        <label>Tempat, Tanggal Lahir</label>
-                                        <input type="text" name="ttl" class="form-control"
-                                            value="{{ $value->ttl }}" required="" placeholder=""
-                                            autocomplete="off">
-                                        <label>Agama</label>
-                                        <input type="text" name="Agama" class="form-control"
-                                            value="{{ $value->Agama }}" required="" placeholder=""
-                                            autocomplete="off">
-                                        <label>Alamat</label>
-                                        <input type="text" name="alamat" class="form-control"
-                                            value="{{ $value->alamat }}" required="" placeholder=""
-                                            autocomplete="off">
-                                        <label>Kewarganegaraan</label>
-                                        <input type="text" name="Kewarganegaraan" class="form-control"
-                                            value="{{ $value->Kewarganegaraan }}" required="" placeholder=""
-                                            autocomplete="off">
-                                    </div>
-                                </div>
-                                <div class="card-body ">
-                                    <div class="form-group">
-                                        <label>No Hp</label>
-                                        <input type="text" name="no_hp" class="form-control"
-                                            value="{{ $value->no_hp }}" required="" placeholder=""
-                                            autocomplete="off">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input type="text" name="email" class="form-control"
-                                            value="{{ $value->email }}" required="" placeholder=""
-                                            autocomplete="off">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Deskripsi</label>
-                                        <textarea type="text" name="deskripsi" class="form-control" rows="4" value="" required=""
-                                            autocomplete="off" placeholder="Deskripsikan Diri Anda Disini" style="">{{ $value->deskripsi }}</textarea>
-                                        <button class="btn btn-primary" type="submit" style="float: right;">Update
-                                            Data</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    @endforeach --}}
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="page-content">
-        <div class="section" id="education">
+        <div class="section" id="tanaman">
             <div class="container">
-                <div class="h4 text-center mb-4 title">JENIS TANAH</div>
+                <div class="h4 text-center mb-4 title">SARAN TANAMAN</div>
                 <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                     <div class="card-body">
                         <div class="row">
@@ -147,13 +60,11 @@
                                 <div class="h6 mt-0 title">Jenis Tanah</div>
                                 <table id="customers">
                                     <tr>
-                                        <th>Perbaikan Tanaman</th>
                                         <th>Saran Tanaman</th>
                                         <th>Aksi</th>
                                     </tr>
                                     @foreach ($data as $value)
                                         <tr>
-                                            <td>{{ $value->perbaikantanah }}</td>
                                             <td>{{ $value->sarantanaman }}</td>
                                             <td><a class="btn btn-warning fa fa-pencil" data-toggle="modal"
                                                     data-target="#exampleModal{{ $value->id_edu }}"
@@ -170,12 +81,55 @@
                                     @csrf
                                     <div class="h6 mt-0 title">Jenis Tanah</div>
                                     <div class="form-group">
-                                        <label>Perbaikan Tanah</label>
-                                        <input type="text" name="perbaikantanah" class="form-control" value=""
-                                            required="" placeholder="" autocomplete="off">
                                         <label>Saran Tanaman</label>
                                         <input type="text" name="sarantanaman" class="form-control" value=""
                                             required="" placeholder="" autocomplete="off">
+                                        <button class="btn btn-primary" type="submit">Simpan</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="section" id="perbaikan">
+            <div class="container">
+                <div class="h4 text-center mb-4 title">SARAN PERBAIKAN</div>
+                <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="card-body">
+                                <div class="h6 mt-0 title">Jenis Tanah</div>
+                                <table id="customers">
+                                    <tr>
+                                        <th>Perbaikan Tanah</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                    @foreach ($data as $value)
+                                        <tr>
+                                            <td>{{ $value->perbaikantanah }}</td>
+                                            <td><a class="btn btn-warning fa fa-pencil" data-toggle="modal"
+                                                    data-target="#exampleModal{{ $value->id_edu }}"
+                                                    style="color: white;"></a>
+                                                <a class="btn btn-danger fa fa-trash"
+                                                    href="{{ url('hapusedu/' . $value->id_edu) }}"></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+                            </div>
+                            <div class="card-body ">
+                                <form action="simpanpendidikan" method="post">
+                                    @csrf
+                                    <div class="h6 mt-0 title">Jenis Tanah</div>
+                                    <div class="form-group">
+                                        <label>Perbaikan Tanah</label>
+                                        <input type="text" name="perbaikantanah" class="form-control"
+                                            value="" required="" placeholder="" autocomplete="off">
                                         <button class="btn btn-primary" type="submit">Simpan</button>
                                     </div>
                                 </form>
@@ -262,7 +216,8 @@
                             <div class="form-group">
                                 <label>Perbaikan Tanah</label>
                                 <input type="text" name="perbaikantanah" class="form-control"
-                                    value="{{ $value->perbaikantanah }}" required="" placeholder="" autocomplete="off">
+                                    value="{{ $value->perbaikantanah }}" required="" placeholder=""
+                                    autocomplete="off">
                                 <label>Saran Tanaman</label>
                                 <input type="text" name="sarantanaman" class="form-control"
                                     value="{{ $value->sarantanaman }}" required="" placeholder=""
@@ -279,7 +234,7 @@
     @endforeach
 
     <!-- Modal Edit berita-->
-    {{-- @foreach ($data as $value)
+    @foreach ($data as $value)
         <div class="modal fade" id="exampleModaledit{{ $value->id_edu }}" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -314,7 +269,7 @@
                 </div>
             </div>
         </div>
-    @endforeach --}}
+    @endforeach
 
 
 </body>
@@ -358,3 +313,98 @@
 <script src="js/now-ui-kit.js?ver=1.1.0"></script>
 <script src="js/aos.js?ver=1.1.0"></script>
 <script src="scripts/main.js?ver=1.1.0"></script>
+
+
+
+
+{{-- code Backup --}}
+
+
+{{--
+    <div class="section" id="about">
+        <div class="container">
+            <div class="h4 text-center mb-4 title">FOTO TANAH</div>
+            <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <div class="card-body">
+                    <form action="updateimage" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PATCH')
+                        <label>FOTO TANAH</label>
+                        <div class="form-group">
+                            <div class="form-group">
+                                <input type="file" name="image">
+                                <button type="submit">Update
+                                    Foto Tanah</button>
+                            </div>
+                        </div>
+                    </form>
+                    <form action="updatebackground" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PATCH')
+                        <label>Foto Background</label>
+                        <div class="form-group">
+                            <div class="form-group">
+                                <input type="file" name="image">
+                                <button type="submit">Update
+                                    Foto Background</button>
+                            </div>
+                        </div>
+                    </form>
+                    @foreach ($profile as $value)
+                        <form action="image-upload" enctype="multipart/form-data" method="post"
+                            enctype="multipart/form-data">
+                            @csrf
+                            @method('PATCH')
+                            <div class="row">
+                                <div class="card-body ">
+                                    <div class="form-group">
+                                        <label>Nama Lengkap</label>
+                                        <input type="text" name="nama" class="form-control"
+                                            value="{{ $value->nama }}" required="" placeholder=""
+                                            autocomplete="off">
+                                        <label>Tempat, Tanggal Lahir</label>
+                                        <input type="text" name="ttl" class="form-control"
+                                            value="{{ $value->ttl }}" required="" placeholder=""
+                                            autocomplete="off">
+                                        <label>Agama</label>
+                                        <input type="text" name="Agama" class="form-control"
+                                            value="{{ $value->Agama }}" required="" placeholder=""
+                                            autocomplete="off">
+                                        <label>Alamat</label>
+                                        <input type="text" name="alamat" class="form-control"
+                                            value="{{ $value->alamat }}" required="" placeholder=""
+                                            autocomplete="off">
+                                        <label>Kewarganegaraan</label>
+                                        <input type="text" name="Kewarganegaraan" class="form-control"
+                                            value="{{ $value->Kewarganegaraan }}" required="" placeholder=""
+                                            autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="card-body ">
+                                    <div class="form-group">
+                                        <label>No Hp</label>
+                                        <input type="text" name="no_hp" class="form-control"
+                                            value="{{ $value->no_hp }}" required="" placeholder=""
+                                            autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="text" name="email" class="form-control"
+                                            value="{{ $value->email }}" required="" placeholder=""
+                                            autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Deskripsi</label>
+                                        <textarea type="text" name="deskripsi" class="form-control" rows="4" value="" required=""
+                                            autocomplete="off" placeholder="Deskripsikan Diri Anda Disini" style="">{{ $value->deskripsi }}</textarea>
+                                        <button class="btn btn-primary" type="submit" style="float: right;">Update
+                                            Data</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div> --}}

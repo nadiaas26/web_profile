@@ -19,8 +19,7 @@ use App\Http\Controllers\ProfileController;
 // });
 
 
-Route::get('/',[ProfileController::class,'index'])->name('index');
-Route::get('/login',[ProfileController::class,'login'])->name('login');
+Route::get('/',[ProfileController::class,'login']);
 Route::post('/auth',[ProfileController::class,'auth']);
 Route::post('editedu/{id}',[ProfileController::class,'update']);
 Route::get('hapusedu/{id}',[ProfileController::class,'delete']);
